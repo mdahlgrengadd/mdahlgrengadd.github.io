@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>wavesurfer.js</title>
+
+        <link href="data:image/gif;" rel="icon" type="image/x-icon" />
+
+        <!-- Bootstrap -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/ribbon.css" />
+
+        <link rel="screenshot" itemprop="screenshot" href="http://katspaugh.github.io/wavesurfer.js/example/screenshot.png" />
+
+        <script type="text/javascript" src="app_bundle.js"></script>
+
+    </head>
+
+    <body itemscope itemtype="http://schema.org/WebApplication">
+        <div class="container">
+            <div class="header">
+                <noindex>
+                <ul class="nav nav-pills pull-right">
+                    <li><a href="?fill">Fill</a></li>
+                    <li><a href="?scroll">Scroll</a></li>
+                </ul>
+                </noindex>
+
+                <h1 itemprop="name">Slow Down and Loop Audio</h1>
+            </div>
+
+            <div id="demo">
+                
+
+                <div id="waveform">
+                    <div class="progress progress-striped active" id="progress-bar">
+                        <div class="progress-bar progress-bar-info"></div>
+                    </div>
+
+                    <!-- Here be the waveform -->
+                </div>
+
+                <div id="waveform_zoom">
+                    <!--div class="progress progress-striped active" id="zoom-progress-bar">
+                        <div class="progress-bar progress-bar-info"></div>
+                    </div-->
+
+                    <!-- Here be the waveform -->
+                </div>
+
+
+                <div class="controls">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <button class="btn btn-primary" data-action="back">
+                                <i class="glyphicon glyphicon-step-backward"></i>
+                                
+                            </button>
+
+                            <button class="btn btn-primary" data-action="play">
+                                <i class="glyphicon glyphicon-play"></i>
+                                Start
+                                /
+                                <i class="glyphicon glyphicon-pause"></i>
+                                Stop
+                            </button>
+
+                            <button class="btn btn-primary" data-action="forth">
+                                <i class="glyphicon glyphicon-step-forward"></i>
+                                
+                            </button>
+
+                        </div>
+
+                        <div class="col-sm-1">
+                            <i class="glyphicon glyphicon glyphicon-pause"> <br/>0% </i>
+                        </div>
+
+                        <div class="col-sm-3">
+                          <input data-action="zoom" type="range" min="0" max="1000" value="1000" style="width: 100%" />
+                        </div>
+
+                        <div class="col-sm-1">
+                            <i class="glyphicon glyphicon glyphicon-play"> <br/>100% </i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <p class="lead pull-center" id="drop">
+                Drag'n'drop your favorite
+                <i class="glyphicon glyphicon-music"></i>-file
+                here!
+            </p>
+
+            <div class="row marketing">
+                <div class="col-lg-6">
+                    <!--  Granular synthesis contols... -->
+                    <div id="granular-engine-container"></div>
+
+
+                    <!--h4>Web Audio Waveform Visualizer</h4>
+
+                    <p itemprop="about">Customizable waveform audio visualization built on top of Web Audio API and HTML5 Canvas. With <strong>wavesurfer.js</strong> you can create anything from an HTML5 audio player to a sophisticated DJ application. For a list of other projects using wavesurfer.js, check out <a href="https://github.com/katspaugh/wavesurfer.js/wiki/Projects">the wiki</a> where you can also add your own project.</p>
+
+                    <h4>Compatibility</h4>
+
+                    <p itemprop="browserRequirements"><strong>wavesurfer.js</strong> runs on modern browsers <a href="https://caniuse.com/audio-api" rel="nofollow">supporting Web Audio</a>. Including Firefox, Chrome, Safari, Mobile&nbsp;Safari and Opera.</p>
+
+                    <h4>Download</h4>
+
+                    <p>
+                        <a class="btn btn-large btn-success" href="dist/wavesurfer.min.js" itemprop="downloadUrl">Download <strong>wavesurfer.min.js</strong> (20 KB)</a>
+                    </p-->
+                </div>
+
+            </div>
+
+            <div class="footer row">
+                <div class="col-sm-12">
+                    <a rel="license" href="https://creativecommons.org/licenses/by/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+                </div>
+
+                <div class="col-sm-7">
+                    <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">wavesurfer.js</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/katspaugh/wavesurfer.js" property="cc:attributionName" rel="cc:attributionURL">katspaugh</a> is licensed under a&nbsp;<a style="white-space: nowrap" rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.
+                </div>
+
+                <div class="col-sm-5">
+                    <noindex>
+                        Audio track: <a href="https://librivox.org/short-poetry-collection-146-by-various/">LibriVox</a>
+                    </noindex>
+                </div>
+            </div>
+        </div>
+
+        <!--div class="github-fork-ribbon-wrapper right">
+            <div class="github-fork-ribbon">
+                <a itemprop="isBasedOnUrl" href="https://github.com/katspaugh/wavesurfer.js">Fork me on GitHub</a>
+            </div>
+        </div-->
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-50026819-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </body>
+</html>
