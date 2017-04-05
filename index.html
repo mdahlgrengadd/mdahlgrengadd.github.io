@@ -8,6 +8,8 @@
 
         <!-- Bootstrap -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+         <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.js"></script>
 
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/ribbon.css" />
@@ -29,28 +31,12 @@
                 </ul>
                 </noindex>
 
-                <h1 itemprop="name">Slow Down and Loop Audio</h1>
-                <a href="https://en.wikipedia.org/wiki/File:JOHN_MICHEL_CELLO-J_S_BACH_CELLO_SUITE_1_in_G_Prelude.ogg">JOHN MICHEL CELLO-J S BACH CELLO SUITE 1 in G Prelude.ogg</a>
+                <h1 itemprop="name">MusicStudyJS</h1>
+                
             </div>
 
             <div id="demo">
                 
-
-                <div id="waveform">
-                    <div class="progress progress-striped active" id="progress-bar">
-                        <div class="progress-bar progress-bar-info"></div>
-                    </div>
-
-                    <!-- Here be the waveform -->
-                </div>
-
-                <div id="waveform_zoom">
-                    <!--div class="progress progress-striped active" id="zoom-progress-bar">
-                        <div class="progress-bar progress-bar-info"></div>
-                    </div-->
-
-                    <!-- Here be the waveform -->
-                </div>
 
 
                 <div class="controls">
@@ -77,33 +63,60 @@
                         </div>
 
                         <div class="col-sm-1">
-                            <i class="glyphicon glyphicon glyphicon-pause"> <br/>0% </i>
+                            
                         </div>
 
-                        <div class="col-sm-3">
-                          <input data-action="zoom" type="range" min="0" max="1000" value="1000" style="width: 100%" />
-                          Change Speed 
+                        <div class="col-sm-3 pull-right">
+                          <input data-action="zoom" type="range" min="250" max="1000" value="500" style="width: 100%" >Speed</>
+                          
                         </div>
 
                         <div class="col-sm-1">
-                            <i class="glyphicon glyphicon glyphicon-play"> <br/>200% </i>
+                            
                         </div>
                     </div>
 
                 </div>
             </div>
+            <div id="drop">
+                <div id="waveform">
+                    <div class="progress progress-striped active" id="progress-bar">
+                        <div class="progress-bar progress-bar-info"></div>
+                    </div>
 
-            <p class="lead pull-center" id="drop">
+                    <!-- Here be the waveform -->
+                </div>
+                <div id="annotations" class="table-responsive">
+                <!-- Here be transcript -->
+                </div>
+            <p class="lead pull-center">
+
                 Drag'n'drop your favorite
                 <i class="glyphicon glyphicon-music"></i>-file
-                here!
+                here!<br>
+                or try <a id="Load_John_Michael" class="h6" href="https://en.wikipedia.org/wiki/File:JOHN_MICHEL_CELLO-J_S_BACH_CELLO_SUITE_1_in_G_Prelude.ogg"><mark>JOHN MICHEL CELLO-J S BACH CELLO SUITE 1 in G Prelude.ogg</mark></a><br>
+                or <a id="Load_Some_Percussion" class="h6" href="https://en.wikipedia.org/wiki/File:JOHN_MICHEL_CELLO-J_S_BACH_CELLO_SUITE_1_in_G_Prelude.ogg"><mark>SOME PERCUSSION</mark></a>
+
             </p>
+
+            </div>
 
             <div class="row marketing">
                 <div class="col-lg-6">
                     <!--h4>Advanced Settings</h4-->
                     <!--  Granular synthesis contols... -->
-                    <div id="granular-engine-container"></div>
+                      <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Stretch Presets
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#" id="Grain_string_preset">Strings</a></li>
+                          <li><a href="#" id="Grain_percussion_preset">Percussion</a></li>
+                        </ul>
+                      </div>
+
+                    <div id="granular-engine-container">
+                    </div>
+
 
 
                     <!--h4>Web Audio Waveform Visualizer</h4>
@@ -119,8 +132,21 @@
                     <p>
                         <a class="btn btn-large btn-success" href="dist/wavesurfer.min.js" itemprop="downloadUrl">Download <strong>wavesurfer.min.js</strong> (20 KB)</a>
                     </p-->
+
                 </div>
                 <div class="col-lg-6">
+                    <div class="dropdown">
+                      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Equalizer Presets
+                      <span class="caret"></span></button>
+                      <ul class="dropdown-menu">
+                          <li><a href="#" id="EQ_string_preset">Strings</a></li>
+                          <li><a href="#" id="EQ_percussion_preset">Percussion</a></li>
+                      </ul>
+                    </div>
+
+                    <div id="granular-engine-container">
+                    </div>
+
                     <div id="granular-engine-pitch-container"></div>
                     <!--h4 style="color:grey;">Pitch detection (comming soon...)</h4-->
                     <canvas width="300" height="300" id="tunerView"></canvas>
@@ -130,7 +156,11 @@
                     <!--h4>Documentation</h4>
 
                     <p>The full list of options and methods can be found in the <a href="https://github.com/katspaugh/wavesurfer.js/blob/master/README.md">README</a> file.</p-->
+
                 </div>
+
+
+
 
             </div>
 
@@ -141,12 +171,6 @@
 
                 <div class="col-sm-7">
                     <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">wavesurfer.js</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/katspaugh/wavesurfer.js" property="cc:attributionName" rel="cc:attributionURL">katspaugh</a> is licensed under a&nbsp;<a style="white-space: nowrap" rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.
-                </div>
-
-                <div class="col-sm-5">
-                    <noindex>
-                        Audio track: <a href="https://librivox.org/short-poetry-collection-146-by-various/">LibriVox</a>
-                    </noindex>
                 </div>
             </div>
         </div>
