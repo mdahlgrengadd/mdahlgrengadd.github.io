@@ -11,16 +11,20 @@
 %%rightmargin 0
 %%topmargin 0
 %%bottommargin 0
-X:1
-T:%Polska efter Byss-Kalle (nr 6)
-R:%Polska
-B:%[[Notböcker/57 låtar efter Byss-Kalle]] utgivet av Uplands Spelmansförbund (där det även finns en andrastämma)
-Z:%Nils L, 2007-12-14
-O:%efter Byss-Kalle, Uppland
-M:3/4
-L:1/16
-K:D clef=treble
-A4 | !tenuto!d4 {de}!tenuto!d4 (cA)ce  | d2d2 B4 (AB)cd | {\c2} !tenuto![A4e4] !tenuto![A4e4] (dc)df | e2e2 {cB}c4 A4 | 
-     A2f2 f4 (dc)de | d2d2 c4 B4 | B2g2 g2e2 e2d2 | (cd)ec A2A2 (BA)Bc | c2d2 d4 :|: 
-A4 | d2f2 f2d2 d2ef | (gf)ef g2e2 (fe)fg | a2f2 f2d2 d2ef | g2e2 e2c2 c2A2 | 
-     d2f2 f2d2 d2ef | (gf)ef g2e2 (fe)fg | a2f2 d2b2 g2e2 | (dc)Bc [d4D4] :| 
+%%notespacingfactor 2
+%%abc-charset utf-8
+
+X: 25
+T: Polska efter Byss-Kalle (nr 25)
+S: efter Byss-Kalle
+O: Uppland
+R: SlÃ¤ngpolska
+D: Skivan "Byss-Calle" med [[Gruppper/Nyckelharporkestern]] utgiven pÃ¥ Drone, spÃ¥r 11
+M: 3/4
+L: 1/16
+K: G
+%%measurenb 1
+d4 (d^c)de (dc)de | d2>=c2 {cd}(c2B2) B2g2 | (ge)ce (ed)Bd (cB)AG | (FG)AB (AG)FE D2GB |
+d4 (d^c)de (dc)de | d2>=c2 {cd}(c2B2) B2g2 | (ge)ce (ed)Bd (cB)AG | (FG)AF G8 :|
+|: D2FA (cB)AG (FG)AF | D2GB d2BG (DG)BG | D2FA (cB)AG (FG)AF | D2GB d2BG (DG)Bd |
+g2>e2 (e2c2) c4 | g2>d2 (d2B2) B4 | e2>d2 (c2B2) A2FA | (cA)FA G8 :|
