@@ -26,6 +26,19 @@ td.wavesurfer-tier-Comments {
     border: 1px solid black;
 }
 
+.wavesurfer-handle-end {
+    border: 1px solid black;
+}
+
+.wavesurfer-handle-start {
+    left:   -4px !important;
+border: 1px solid black;
+}
+
+.wavesurfer-region {
+    border: 1px dashed black;
+}
+
 span.elan-word-finished {
     color: navy;
 }

@@ -48,7 +48,7 @@
                     <button class="btn btn-primary" data-action="back"><i class="glyphicon glyphicon-step-backward"></i></button> <button class="btn btn-primary" data-action="play"><i class="glyphicon glyphicon-play"></i> Start / <i class="glyphicon glyphicon-pause"></i> Stop</button> <button class="btn btn-primary" data-action="forth"><i class="glyphicon glyphicon-step-forward"></i></button> <button class="btn btn-primary" data-action="addselection"><i class="glyphicon glyphicon-plus-sign"></i></button> <!--/div-->
                     <form class="form-inline pull-right">
                         <div class="form-group">
-                            <label form="inputPassword4">Zoom</label> <input aria-describedby="passwordHelpInline" class="form-control mx-sm-12" data-action="zoom" max="200" min="1" style="padding:0; width: 25%" type="range" value="0"> <small class="text-muted" id="passwordHelpInline">Must be 8-20 characters long.</small>
+                            <label form="inputPassword4"><i class="glyphicon glyphicon-zoom-out"></i></label> <input aria-describedby="passwordHelpInline" class="form-control mx-sm-12" data-action="zoom" max="200" min="1" style="padding:0; width: 50%" type="range" value="0"> <i class="glyphicon glyphicon-zoom-in"></i>
                         </div>
                     </form>
                 </div>
@@ -94,12 +94,12 @@
                 <div class="panel-body">
                     <div class="tab-content">
                         <div class="tab-pane fade in active" id="tab1primary">
-                            <div id="notation" style="position: relative; font-size: 0; line-height: 0; margin-top: 30px;">
+                            <div id="notation" style="position: relative; font-size: 0; line-height: 0; margin-top: 30px; z-index: 1; background: transparent;">
                                 <!-- The score -->
                             </div>
                         </div>
                         <div class="tab-pane fade" id="tab2primary">
-                            <textarea class="form-control" id="abcInput" style="resize:none;min-height:110px;"></textarea>
+                            <textarea class="form-control" id="abcInput" style="resize:none;min-height:250px;"></textarea>
                         </div>
                         <div class="tab-pane fade" id="tab3primary">
                             <div class="table-responsive" id="annotations">
