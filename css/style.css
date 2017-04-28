@@ -88,7 +88,8 @@ body {
 }
 
 #waveform {
-    position: relative;
+    position: absolute;
+    bottom: 0px;
 }
 
 #progress-bar {
@@ -101,9 +102,19 @@ body {
 }
 
 #drop {
-    border: 3px dashed #ddd;
-    padding: 4px;
+    /*border: 3px dashed #ddd;*/
+    position: relative;
+    padding: 0px;
+    min-height: 360px;
+    background-image: url('./assets/5760_grid_compressed.jpg'); 
+    background-size: cover;
+}
 
+
+
+.panel-primary>.panel-heading {
+    background-image: url(./assets/5760_grid_compressed.jpg) !important;
+    background-size: cover;
 }
 
 #drop.wavesurfer-dragover {

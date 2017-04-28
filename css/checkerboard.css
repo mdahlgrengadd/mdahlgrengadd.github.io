@@ -1,0 +1,48 @@
+body {
+  height: 100vh;
+  background: #000000;
+  overflow: hidden;
+  -webkit-perspective: 300px;
+          perspective: 300px;
+}
+
+#checkerboard {
+  position: absolute;
+  bottom: -30%;
+  right: -60%;
+  height: 150%;
+  width: 200%;
+  -webkit-transform: rotateX(75deg);
+          transform: rotateX(75deg);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  background-color: #000000;
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+  background-image: -webkit-linear-gradient(45deg, #ffffff 25%, transparent 25%, transparent 75%, #ffffff 75%, #ffffff), -webkit-linear-gradient(45deg, #ffffff 25%, transparent 25%, transparent 75%, #ffffff 75%, #ffffff);
+  background-image: linear-gradient(45deg, #ffffff 25%, transparent 25%, transparent 75%, #ffffff 75%, #ffffff), linear-gradient(45deg, #ffffff 25%, transparent 25%, transparent 75%, #ffffff 75%, #ffffff);
+  -webkit-animation: move-background 3s linear infinite;
+          animation: move-background 3s linear infinite;
+}
+#checkerboard:after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-image: -webkit-linear-gradient(#000000, transparent);
+  background-image: linear-gradient(#000000, transparent);
+}
+
+@-webkit-keyframes move-background {
+  to {
+    background-position: 0 100px, 50px 150px;
+  }
+}
+
+@keyframes move-background {
+  to {
+    background-position: 0 100px, 50px 150px;
+  }
+}

@@ -1,4 +1,4 @@
-%staffsep 70
+%%staffsep 70
 %%titlespace 0
 %%subtitlespace 0
 %%composerspace 0
@@ -12,23 +12,22 @@
 %%topmargin 0
 %%bottommargin 0
 %%notespacingfactor 2
+%%singleline 0
 %%abc-charset utf-8
-%%partsfont * 20 box
-%%bgcolor transparent
 
-X: 25
-T: %Polska efter Byss-Kalle (nr 25)
-S: %efter Byss-Kalle
-O: %Uppland
-R: %SlÃ¤ngpolska
-D: Skivan "Byss-Calle" med [[Gruppper/Nyckelharporkestern]] utgiven pÃ¥ Drone, spÃ¥r 11
-M: 3/4
-L: 1/16
-K: G
-%%measurenb 1
-P: Part A
-d4 (d^c)de (dc)de | d2>=c2 {cd}(c2B2) B2g2 | (ge)ce (ed)Bd (cB)AG | (FG)AB (AG)FE D2GB |
-d4 (d^c)de (dc)de | d2>=c2 {cd}(c2B2) B2g2 | (ge)ce (ed)Bd (cB)AG | (FG)AF G8 :|
-P: Part B
-|: D2FA (cB)AG (FG)AF | D2GB d2BG (DG)BG | D2FA (cB)AG (FG)AF | D2GB d2BG (DG)Bd |
-g2>e2 (e2c2) c4 | g2>d2 (d2B2) B4 | e2>d2 (c2B2) A2FA | (cA)FA G8 :|
+
+X:2083
+T:Halling frÃ¥n EkshÃ¤rad efter Per LÃ¶Ã¶f
+S:Efter Ben Teitelbaum
+S:Efter Per LÃ¶Ã¶f
+Z:Karen Myers (#2083)
+Z:Upptecknad 7/2008
+M:2/4
+L:1/16
+R:Halling
+N:Tonarten Ã¤r egentligen hexatonisk (D E F G A C#)
+K:Dm
+(Aa)gba4 | (ag)eg f2>(e2 | f2)ag e2gf | (df)ed (^c2A2) |
+(Aa)gba4 | (ag)eg f2>(e2 | f2)ag e2gf | (df)e^cd4 :|
+|: A2(d^c d2)e2- | e2(fe f2)(e^c | A2)(d^c d2)eg | (fe)d^c d2AF |
+D2(d^c d2)e2- | e2(fe f2)(e^c | A2)(d^c d2)eg | (fe)d^c d4 :|

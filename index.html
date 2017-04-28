@@ -5,6 +5,7 @@
     <title>wavesurfer.js</title>
     <link href="data:image/gif;" rel="icon" type="image/x-icon"><!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
     <script src="https://code.jquery.com/jquery-1.10.2.js">
     </script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.js">
@@ -16,6 +17,12 @@
     <link href="css/tabs.css" rel="stylesheet">
     <link href="css/ribbon.css" rel="stylesheet">
     <link href="http://katspaugh.github.io/wavesurfer.js/example/screenshot.png" itemprop="screenshot" rel="screenshot">
+    <link href="//vjs.zencdn.net/5.11/video-js.min.css" rel="stylesheet">
+
+<script src="//vjs.zencdn.net/5.11/video.min.js"></script>
+  <script src="./node_modules/videojs-youtube/dist/Youtube.min.js"></script>
+  <script src="./node_modules/videojs-vimeo/src/Vimeo.js"></script>
+
     <script src="app_bundle.js" type="text/javascript">
     </script>
     <script src="https://rawgit.com/burnson/Reverb.js/master/reverb.min.js">
@@ -36,23 +43,66 @@
             <h3 itemprop="subtitle">Loop, Annotate, Record &amp; Slow down</h3>
         </div>
         <div id="demo">
+
             <!--audio id="single-song" controls preload="none" crossorigin="anonymous">
                 <source src='https://api.soundcloud.com/tracks/51803494/stream?client_id=0b4984c1ad516406425dab7232f983f3' type="audio/mp3" id="single-song"/-->
             <!--source src='https://api.soundcloud.com/tracks/314792875/stream?client_id=0b4984c1ad516406425dab7232f983f3' type="audio/mp3" id="single-song"/>
                 Your browser does not support the audio tag.
             </audio-->
-            <div id="drop">
+            <!--div id="drop" style="background-image: url('./assets/5760_grid_compressed.jpg'); background-size: cover;"-->
+                <div id="drop">
+
+<video style="height: 360px; width:900px; position: absolute; z-index: -1;"
+    id="my-player"
+    class="video-js"
+    
+    preload="auto"
+
+    data-setup='{ "muted": true, "techOrder": ["vimeo"], "sources": [{ "type": "video/vimeo", "src": "https://vimeo.com/51374722"}] }'
+    muted>
+  <!--source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source>
+  <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm"></source>
+  <source src="//vjs.zencdn.net/v/oceans.ogv" type="video/ogg"></source-->
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a
+    web browser that
+    <a href="http://videojs.com/html5-video-support/" target="_blank">
+      supports HTML5 video
+    </a>
+  </p>
+</video>
+
+<video style="height: 360px; width:900px; position: absolute; z-index: -1;"
+    id="my-player2"
+    class="video-js"
+    preload="auto"
+    data-setup='{ "muted": true, "techOrder": ["vimeo"], "sources": [{ "type": "video/vimeo", "src": "https://vimeo.com/51374722"}] }'
+    muted>
+  <!--source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source>
+  <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm"></source>
+  <source src="//vjs.zencdn.net/v/oceans.ogv" type="video/ogg"></source-->
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a
+    web browser that
+    <a href="http://videojs.com/html5-video-support/" target="_blank">
+      supports HTML5 video
+    </a>
+  </p>
+</video>
+
+
+
                 <div class="controls">
                     <!--div class="row"-->
                     <!--div class="col-sm-7"-->
-                    <button class="btn btn-primary" data-action="back"><i class="glyphicon glyphicon-step-backward"></i></button> <button class="btn btn-primary" data-action="play"><i class="glyphicon glyphicon-play"></i> Start / <i class="glyphicon glyphicon-pause"></i> Stop</button> <button class="btn btn-primary" data-action="forth"><i class="glyphicon glyphicon-step-forward"></i></button> <button class="btn btn-primary" data-action="addselection"><i class="glyphicon glyphicon-plus-sign"></i></button> <!--/div-->
+                    <button class="btn btn-primary" data-action="back"><i class="glyphicon glyphicon-step-backward"></i></button> <button class="btn btn-primary" data-action="play"><i class="glyphicon glyphicon-play"></i> Start / <i class="glyphicon glyphicon-pause"></i> Stop</button> <button class="btn btn-primary" data-action="forth"><i class="glyphicon glyphicon-step-forward"></i></button> <button class="btn btn-primary" data-action="addselection"><i class="glyphicon glyphicon-link"></i> Link wave to measure</button> <button class="btn btn-primary" data-action="swapVid"> swapVideo </button> <!--/div-->
                     <form class="form-inline pull-right">
                         <div class="form-group">
                             <label form="inputPassword4"><i class="glyphicon glyphicon-zoom-out"></i></label> <input aria-describedby="passwordHelpInline" class="form-control mx-sm-12" data-action="zoom" max="200" min="1" style="padding:0; width: 50%" type="range" value="0"> <i class="glyphicon glyphicon-zoom-in"></i>
                         </div>
                     </form>
                 </div>
-                <div class="col-md-12" id="waveform">
+                <div class="col-md-12" id="waveform" style="padding-top: 9%;">
                     <div class="progress progress-striped active" id="progress-bar">
                         <div class="progress-bar progress-bar-info"></div>
                     </div><!-- Here be the waveform -->
@@ -61,19 +111,19 @@
                 <p class="lead pull-center" id="dropmessage">Drag'n'drop your favorite <i class="glyphicon glyphicon-music"></i>-file here!</p>
             </div>
             <div class="panel with-nav-tabs panel-primary">
-                <div class="panel-heading">
+                <div class="panel-heading" style="background-image: url('./assets/5760_grid_compressed.jpg'); background-size: cover;">
                     <ul class="nav nav-tabs">
                         <li class="active">
-                            <a data-toggle="tab" href="#tab1primary">Score</a>
+                            <a data-toggle="tab" href="#tab1primary"><i class="glyphicon glyphicon-music"></i> Score</a>
                         </li>
                         <li>
-                            <a data-toggle="tab" href="#tab2primary">Sources</a>
+                            <a data-toggle="tab" href="#tab2primary"><i class="glyphicon glyphicon-pencil"></i> Sources</a>
                         </li>
                         <li>
-                            <a data-toggle="tab" href="#tab3primary">Annotations</a>
+                            <a data-toggle="tab" href="#tab3primary"><i class="glyphicon glyphicon-list-alt"></i> Annotations</a>
                         </li>
                         <li class="dropdown">
-                            <a data-toggle="dropdown" href="#">Audio Settings <span class="caret"></span></a>
+                            <a data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-cog"></i> Audio Settings <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
                                     <a data-toggle="tab" href="#tab4primary">EQ</a>
@@ -100,6 +150,9 @@
                         </div>
                         <div class="tab-pane fade" id="tab2primary">
                             <textarea class="form-control" id="abcInput" style="resize:none;min-height:250px;"></textarea>
+
+<button class="btn btn-primary" data-action="parseAbc"><i class="glyphicon glyphicon-refresh"></i> Parse ABC </button> 
+
                         </div>
                         <div class="tab-pane fade" id="tab3primary">
                             <div class="table-responsive" id="annotations">
