@@ -35,6 +35,8 @@
             </ul>
             <h1 itemprop="name">L.A.R.S.</h1>
             <h3 itemprop="subtitle">Loop, Annotate, Record &amp; Slow down</h3>
+            <p><h4>Usage:</h4> Hover mouse over waveform to scrub audio (listen to that instant of time in audio).
+            <br>Change speed of playback (and much more) in Audio Settings -> Timestretch.</p>
         </div>
         <div id="demo">
 
@@ -50,7 +52,7 @@
                 <div class="controls">
                     <!--div class="row"-->
                     <!--div class="col-sm-7"-->
-                    <button class="btn btn-primary" data-action="back"><i class="glyphicon glyphicon-step-backward"></i></button> <button class="btn btn-primary" data-action="play"><i class="glyphicon glyphicon-play"></i> Start / <i class="glyphicon glyphicon-pause"></i> Stop</button> <button class="btn btn-primary" data-action="forth"><i class="glyphicon glyphicon-step-forward"></i></button> <button class="btn btn-primary" data-action="addselection"><i class="glyphicon glyphicon-link"></i> Link wave to measure</button> <button class="btn btn-primary" data-action="mute"> Toggle Mute </button> <!--/div-->
+                    <button class="btn btn-primary" data-action="back"><i class="glyphicon glyphicon-step-backward"></i></button> <button class="btn btn-primary" data-action="play"><i class="glyphicon glyphicon-play"></i> Start / <i class="glyphicon glyphicon-pause"></i> Stop</button> <button class="btn btn-primary" data-action="forth"><i class="glyphicon glyphicon-step-forward"></i></button> <button disabled class="btn btn-primary" data-action="addselection"><i class="glyphicon glyphicon-link"></i> Link wave to measure</button> <button class="btn btn-primary" data-action="mute"> Toggle Mute </button> <!--/div-->
                     <form class="form-inline pull-right">
                         <div class="form-group">
                             <label form="inputPassword4"><i class="glyphicon glyphicon-zoom-out"></i></label> <input id="zoomslider" aria-describedby="passwordHelpInline" class="form-control mx-sm-12" data-action="zoom" max="2000" min="1" style="padding:0; width: 50%" type="range" value="0"> <i class="glyphicon glyphicon-zoom-in"></i>
@@ -108,7 +110,7 @@
                         </div>
                         <div class="tab-pane fade" id="tab4primary">
                             <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button">Equalizer Presets <span class="caret"></span></button>
+                                <button disabled class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button">Equalizer Presets <span class="caret"></span></button>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="#" id="EQ_string_preset">Strings</a>
@@ -123,7 +125,7 @@
                         </div>
                         <div class="tab-pane fade" id="tab5primary">
                             <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button">Stretch Presets <span class="caret"></span></button>
+                                <button disabled class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button">Stretch Presets <span class="caret"></span></button>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="#" id="Grain_string_preset">Strings</a>
