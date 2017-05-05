@@ -81,6 +81,10 @@ body {
         display: inline;
     }
 }
+/* SVG not clickable, pass through to whats underneath */
+svg {
+    pointer-events: none;
+}
 
 .lead {
     text-align: center;
@@ -89,8 +93,28 @@ body {
 
 #waveform {
     position: absolute;
-    bottom: 0px;
+    bottom: 20px;
 }
+
+timeline {
+    position: absolute;
+    bottom: 0px;
+    background: black;
+    opacity: 0.8;
+}
+
+
+#img-tooltip {
+  position: absolute;
+}
+
+/*.wavesurfer-region {
+    z-index:3 !important;
+}
+
+[data-id="playregion"] {
+    z-index:2 !important;
+}*/
 
 #progress-bar {
     position: absolute;
@@ -105,16 +129,16 @@ body {
     /*border: 3px dashed #ddd;*/
     position: relative;
     padding: 0px;
-    min-height: 360px;
-    background-image: url('./assets/5760_grid_compressed.jpg'); 
-    background-size: cover;
+    min-height: 155px;
+    /*background-image: url('../assets/5760_grid_compressed.jpg'); 
+    background-size: cover;*/
 }
 
 
 
 .panel-primary>.panel-heading {
-    background-image: url(./assets/5760_grid_compressed.jpg) !important;
-    background-size: cover;
+    /*background-image: url(../assets/5760_grid_compressed.jpg) !important;
+    background-size: cover;*/
 }
 
 #drop.wavesurfer-dragover {
