@@ -84,7 +84,7 @@ loader.load(assets).then(function(loaded) {
       playControl.stop();
   });
 
-  var speedSlider = new wavesBasicControllers.Slider("Speed", 0.25, 2.5, 0.00001, 1.0000, "", '', containerId, function(value) {
+  var speedSlider = new wavesBasicControllers.Slider("Speed", 0.4, 2.5, 0.00001, 1.0000, "", '', containerId, function(value) {
     playControl.speed = value;
     speedSlider.value = playControl.speed;
 
