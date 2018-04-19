@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>waves-audio | Phasevocoder Engine Example</title>
+  <link href='//fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="./assets/common.css" />
+  <link rel="stylesheet" href="./assets/prism.css" />
+
+  <script src="./assets/waves-audio.umd.js"></script>
+  <script src="./assets/waves-loaders.min.js"></script>
+  <script src="./assets/waves-basic-controllers.umd.js"></script>
+  <script src="./assets/prism.js"></script>
+  <script>
+    wavesBasicControllers.setTheme('dark');
+  </script>
+</head>
+<html>
+<body>
+    <section>
+    <h2>Phasevocoder Engine</h2>
+    <p>This example shows a *transported* `PhasevocoderEngine` with a few parameter controls.</p>
+    <div class="controls" id="controls-container"></div>
+    <script rel="controls-container">
+// ---------/\---------
+(function() {
+// ---------\/---------
+var audioContext = wavesAudio.audioContext;
+var loader = new wavesLoaders.SuperLoader(); // instantiate loader
+// ---------/\---------
+var containerId = '#controls-container';
+// ---------\/---------
+
+var assets = [
+  "./assets/hendrix.wav"
+];
+
+  var transport = new wavesAudio.Transport()
+
+  var playControl = new wavesAudio.PlayControl(transport);
+
+// load audio and marker files
+loader.load(assets).then(function(loaded) {
+  var hBuffer = loaded[0];
+  var BUF_SIZE = 4096;
+  var nr_bins = hBuffer.duration * hBuffer.sampleRate / BUF_SIZE;
+  var pArray = [];
+  var dArray = [];
+  var totbufsize = hBuffer.duration * hBuffer.sampleRate;
+  for (var bin =0; bin < nr_bins; bin++) {
+    var _bufsize = BUF_SIZE;
+    if(bin*BUF_SIZE+BUF_SIZE>totbufsize)
+    {
+      _bufsize = totbufsize - bin * BUF_SIZE;
+      //console.log(_bufsize);
+    }  
+
+      pArray.push(bin*BUF_SIZE/hBuffer.sampleRate);
+      dArray.push(_bufsize/hBuffer.sampleRate);
+  }
+
+  // get scheduler and create scheduled segment engine
+  var scheduler = wavesAudio.getScheduler();
+ 
+  // create transport with play control and transported segment engine
+  var transportedSegmentEngine = new wavesAudio.PhasevocoderEngine({
+    buffer: hBuffer,
+    frameSize: 4096,
+    positionArray: pArray,
+    durationArray: dArray,
+    cyclic: true
+  });
+  
+  transportedSegmentEngine.connect(audioContext.destination);
+  transport.add(transportedSegmentEngine);
+  // ---------/\---------
+  // create GUI elements
+ 
+  new wavesBasicControllers.Title("Segment Engine with Play Control", containerId);
+
+  new wavesBasicControllers.Toggle("Play", false, containerId, function(value) {
+    if (value)
+      playControl.start();
+    else
+      playControl.stop();
+  });
+
+  var speedSlider = new wavesBasicControllers.Slider("Speed", 0.25, 2.5, 0.00001, 1.0000, "", '', containerId, function(value) {
+    playControl.speed = value;
+    speedSlider.value = playControl.speed;
+
+    transportedSegmentEngine.durationRel = Math.pow(2, resamplingSlider.value / 600) * (1.000 / value);
+    transportedSegmentEngine.stretchFactor = Math.pow(2, resamplingSlider.value / 1200) * (1.000 / value);
+  });
+
+  var resamplingSlider = new wavesBasicControllers.Slider("Resampling", 0, 1200, 0.1000, 0, "cent", '', containerId, function(value) {
+    transportedSegmentEngine.resampling = value;
+    var div = (value/1200);
+    transportedSegmentEngine.durationRel =  Math.pow(2, value / 600) * (1.000/ speedSlider.value);
+    transportedSegmentEngine.stretchFactor =  Math.pow(2, div) * (1.000 / speedSlider.value);
+  });
+
+// ---------\/---------
+});
+// ---------/\---------
+})();
+// ---------\/---------
+    </script>
+
+    <script src="./assets/insert-code.js"></script>
+</body>
+</html>
