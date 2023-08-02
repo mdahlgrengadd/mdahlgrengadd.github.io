@@ -9,9 +9,24 @@
   </head>
 
   <body>
-    <div id="waveform">
-      <!-- the waveform will be rendered here -->
-    </div>
+  <div style="display: flex; margin: 1rem 0; gap: 1rem;">
+    <button>
+      Play/pause
+    </button>
+
+    <label>
+      Playback rate: <span id="rate">2.00</span>x
+    </label>
+
+    <label>
+      0.25x <input type="range" min="0" max="4" step="1" value="2" /> 4x
+    </label>
+
+    <label>
+      <input type="checkbox" checked />
+      Preserve pitch
+    </label>
+  </div>
     
     <script type="module">
 import WaveSurfer from 'https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.esm.js'
